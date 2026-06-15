@@ -22,7 +22,8 @@ for i in range(len(st.session_state.books)):
     col1, col2, col3 = st.columns([2, 1, 1])
     
     with col1:
-        st.markdown(### f"**{i+1}. {book_name}**")
+        # 오류가 있던 부분 수정 완료! ###이 문자열 안으로 들어갔습니다.
+        st.markdown(f"### **{i+1}. {book_name}**")
     
     with col2:
         if book_status == "대여 가능":
@@ -39,7 +40,7 @@ for i in range(len(st.session_state.books)):
 
 st.divider()
 
-# 4. 반납 기능 (추가 기능)
+# 4. 반납 기능
 st.subheader("🔄 도서 반납하기")
 borrowed_books = [st.session_state.books[i] for i in range(len(st.session_state.books)) if st.session_state.status[i] == "대여 중"]
 
